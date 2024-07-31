@@ -12,6 +12,8 @@
   },
   "aliases": {
     "components": "@mantul/component",
-    "utils": "@mantul/lib/utils"
+    "utils": "@mantul/lib/utils",
+    "ui": "@mantul/component/ui",
+    "magicui": "@mantul/component/magicui"
   }
 }
