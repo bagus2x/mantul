@@ -58,11 +58,11 @@ export const EventCalendar = ({ className }: BigCalendarProps) => {
   return (
     <Card className={cn('flex w-full flex-col gap-4 p-4 md:flex-row', className)} asChild>
       <section>
-        <div className='flex w-full flex-col space-y-4 md:max-w-72'>
+        <div className='hidden w-full flex-col space-y-4 lg:flex lg:max-w-72'>
           <NewEventDrawer />
           <Calendar
             mode='single'
-            className='hidden rounded-md border md:block'
+            className='rounded-md border'
             selected={date}
             onSelect={(date) => {
               if (date) setDate(date)

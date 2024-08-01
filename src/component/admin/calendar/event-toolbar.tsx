@@ -51,14 +51,18 @@ export const EventToolbar = (props: ToolbarProps) => {
   }
 
   return (
-    <div className='mb-4 flex gap-4'>
-      <Button variant='ghost' size='icon' onClick={goToPrevious}>
-        <ChevronLeftIcon />
-      </Button>
-      <Button variant='ghost' size='icon' onClick={goToNext}>
-        <ChevronRightIcon />
-      </Button>
-      <div className='flex flex-1 items-center text-xl'>{title(props)}</div>
+    <div className='mb-4 flex flex-col gap-4 md:flex-row'>
+      <div className='flex w-full gap-4'>
+        <Button variant='ghost' size='icon' onClick={goToPrevious}>
+          <ChevronLeftIcon />
+        </Button>
+        <Button variant='ghost' size='icon' onClick={goToNext}>
+          <ChevronRightIcon />
+        </Button>
+        <div className='flex flex-1 items-center justify-end text-xl md:justify-start'>
+          {title(props)}
+        </div>
+      </div>
       <ToggleGroup type='single' className='gap-0' value={props.view}>
         <Button className='rounded-l-md rounded-r-none' variant='outline' asChild>
           <ToggleGroupItem value='month' aria-label='Toggle month' onClick={goToMonthView}>
