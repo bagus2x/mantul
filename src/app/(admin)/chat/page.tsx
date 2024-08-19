@@ -1,6 +1,6 @@
 'use client'
 
-import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '@mantul/component/ui/drawer'
+import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '@mantul/components/ui/drawer'
 
 export function MyDrawer() {
   return (

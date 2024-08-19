@@ -1,4 +1,4 @@
-import { EventCalendar } from '@mantul/component/admin/calendar/event-calendar'
+import { EventCalendar } from '@mantul/app/(admin)/calendar/components/event-calendar'
 
 export default function Page() {
   return (

@@ -3,7 +3,7 @@ import { Noto_Sans } from 'next/font/google'
 import { ProgressBar, ProgressBarProvider } from 'react-transition-progress'
 
 import '@mantul/app/globals.css'
-import { cn } from '@mantul/lib/utils'
+import { cn } from '@mantul/libs/utils'
 
 const noto = Noto_Sans({
   subsets: ['latin'],
