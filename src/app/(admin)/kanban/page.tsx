@@ -2,7 +2,7 @@ import { KanbanBoard } from '@mantul/app/(admin)/kanban/components/kanban-board'
 
 export default function KanbanPage() {
   return (
-    <main className='min-h-[calc(100%-64px)] overflow-x-auto p-4'>
+    <main className='overflow-x-auto p-4'>
       <KanbanBoard className='mx-auto w-fit min-w-[calc(1536px-32px)]' />
     </main>
   )

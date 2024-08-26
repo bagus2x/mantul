@@ -15,12 +15,12 @@ import {
 } from 'lucide-react'
 import * as React from 'react'
 
-import { AccountSwitcher } from '@mantul/app/(admin)/email/components/account-switcher'
 import { MailDisplay } from '@mantul/app/(admin)/email/components/email-display'
 import { EmailList } from '@mantul/app/(admin)/email/components/email-list'
 import { Nav } from '@mantul/app/(admin)/email/components/nav'
 import { useEmail } from '@mantul/app/(admin)/email/components/use-email'
 import { Mail } from '@mantul/app/(admin)/email/data'
+import { Card } from '@mantul/components/ui/card'
 import { Input } from '@mantul/components/ui/input'
 import {
   ResizableHandle,
@@ -31,7 +31,6 @@ import { Separator } from '@mantul/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@mantul/components/ui/tabs'
 import { TooltipProvider } from '@mantul/components/ui/tooltip'
 import { cn } from '@mantul/libs/utils'
-import { Card } from '@mantul/components/ui/card'
 
 interface MailProps {
   accounts: {
@@ -79,14 +78,6 @@ export function Email({
               document.cookie = `react-resizable-panels:collapsed=${JSON.stringify(false)}`
             }}
             className={cn(isCollapsed && 'min-w-[50px] transition-all duration-300 ease-in-out')}>
-            <div
-              className={cn(
-                'flex h-[52px] items-center justify-center',
-                isCollapsed ? 'h-[52px]' : 'px-2',
-              )}>
-              <AccountSwitcher isCollapsed={isCollapsed} accounts={accounts} />
-            </div>
-            <Separator />
             <Nav
               isCollapsed={isCollapsed}
               links={[

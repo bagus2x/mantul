@@ -2,24 +2,31 @@
 
 import { AnimatePresence, motion } from 'framer-motion'
 import {
+  BookOpenIcon,
   CalendarIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
+  CircleAlertIcon,
   DotIcon,
+  FingerprintIcon,
+  HeartHandshakeIcon,
   HomeIcon,
   LayoutPanelLeftIcon,
+  LockIcon,
   MailIcon,
+  MapIcon,
   MessagesSquareIcon,
   PieChartIcon,
   SquareKanbanIcon,
 } from 'lucide-react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren, useCallback } from 'react'
 import { create } from 'zustand'
 
 import { Drawer, DrawerContent } from '@mantul/components/ui/drawer'
 import { Link } from '@mantul/components/ui/link'
+import { ScrollArea } from '@mantul/components/ui/scroll-area'
 import { Separator } from '@mantul/components/ui/separator'
 import { useMediaQuery } from '@mantul/hooks/use-media-query'
 import { useToggle } from '@mantul/hooks/use-toggle'
@@ -117,9 +124,64 @@ const menus: SidebarMenuItemProps[] = [
     Icon: SquareKanbanIcon,
   },
   {
+    title: 'Maps',
+    href: '/map',
+    Icon: MapIcon,
+  },
+  {
     title: 'Calendar',
     href: '/calendar',
     Icon: CalendarIcon,
+  },
+  {
+    title: 'Authentication',
+    href: '/auth',
+    Icon: LockIcon,
+    menus: [
+      {
+        title: 'Sign up',
+        href: '/auth/signup',
+        Icon: DotIcon,
+      },
+      {
+        title: 'Sign in',
+        href: '/auth/signin',
+        Icon: DotIcon,
+      },
+    ],
+  },
+  {
+    title: 'Errors',
+    href: '/error',
+    Icon: CircleAlertIcon,
+    menus: [
+      {
+        title: '403 Forbidden',
+        href: '/error/403',
+        Icon: DotIcon,
+      },
+      {
+        title: '404 Not Found',
+        href: '/error/404',
+        Icon: DotIcon,
+      },
+      {
+        title: '500 Server Error',
+        href: '/error/500',
+        Icon: DotIcon,
+      },
+    ],
+  },
+  { title: 'Others' },
+  {
+    title: 'Documentation',
+    href: '/documentation',
+    Icon: BookOpenIcon,
+  },
+  {
+    title: 'Support',
+    href: '/support',
+    Icon: HeartHandshakeIcon,
   },
 ]
 
@@ -142,7 +204,10 @@ export const SidebarMenuItem = (menu: SidebarMenuItemProps) => {
   const depth = menu.depth || 0
   const isSubMenuExpanded = menu.menus?.length && isExpanded && isSidebarExpanded
   const pathname = usePathname()
-  const isActive = (href: string | undefined) => href && pathname.startsWith(href) && href !== '/'
+  const isActive = useCallback(
+    (href: string | undefined) => href && pathname.startsWith(href) && href !== '/',
+    [pathname],
+  )
 
   const LinkItem = React.useCallback(
     ({ children }: PropsWithChildren) => {
@@ -192,7 +257,16 @@ export const SidebarMenuItem = (menu: SidebarMenuItemProps) => {
         </Link>
       )
     },
-    [toggle],
+    [
+      toggle,
+      expand,
+      isActive,
+      isSidebarExpanded,
+      menu.href,
+      menu.menus?.length,
+      menu.title,
+      pathname,
+    ],
   )
 
   return (
@@ -203,10 +277,12 @@ export const SidebarMenuItem = (menu: SidebarMenuItemProps) => {
             <menu.Icon style={{ marginInlineEnd: depth * 12 }} className='size-5 shrink-0' />
           )}
         </div>
-        {true && (
-          <span className='flex-1 overflow-hidden text-ellipsis text-nowrap'>{menu.title}</span>
+        {isSidebarExpanded && (
+          <span className={cn('flex-1 overflow-hidden text-ellipsis text-nowrap')}>
+            {menu.title}
+          </span>
         )}
-        {menu.menus?.length && (
+        {menu.menus?.length && isSidebarExpanded && (
           <ChevronRightIcon
             className={cn('size-4 transition-all duration-500', isSubMenuExpanded && 'rotate-90')}
           />
@@ -217,7 +293,8 @@ export const SidebarMenuItem = (menu: SidebarMenuItemProps) => {
           key={menu.href}
           initial='hidden'
           variants={subMenuTransition}
-          animate={isSubMenuExpanded ? 'visible' : 'hidden'}>
+          animate={isSubMenuExpanded ? 'visible' : 'hidden'}
+          className={cn(!isSidebarExpanded && 'hidden')}>
           {menu?.menus?.map((menu) => (
             <SidebarMenuItem key={menu.href} {...menu} depth={depth + 1} />
           ))}
@@ -231,8 +308,8 @@ export const SidebarContent = () => {
   const { isExpanded, toggle } = useSidebar()
 
   return (
-    <div className='overflow-hidden px-2'>
-      <div className={cn('flex h-16 items-center space-x-2 px-2')}>
+    <div className='overflow-hidden'>
+      <div className={cn('flex h-16 items-center space-x-2 px-4')}>
         <Image
           src='/mantul.svg'
           width={32}
@@ -249,12 +326,15 @@ export const SidebarContent = () => {
         <ChevronLeftIcon
           className={cn('size-4 transition-all duration-500', isExpanded && 'rotate-180')}
         />
+        <span className='sr-only'>Toggle sidebar</span>
       </button>
-      <div className='flex flex-col justify-start space-y-1 text-sm'>
-        {menus.map((menu, index) => (
-          <SidebarMenuItem key={index} {...menu} />
-        ))}
-      </div>
+      <ScrollArea className='h-full px-2 pb-20'>
+        <div className='flex flex-col justify-start space-y-1 text-sm'>
+          {menus.map((menu, index) => (
+            <SidebarMenuItem key={index} {...menu} />
+          ))}
+        </div>
+      </ScrollArea>
     </div>
   )
 }

@@ -38,7 +38,7 @@ export const KanbanTaskList = ({ taskList, active, className }: KanbanTaskListPr
   return (
     <Card
       className={cn(
-        'w-80 shrink-0 bg-gray-50',
+        'w-80 shrink-0 bg-gray-50 dark:bg-card/50',
         isOverTaskList && 'opacity-50 ring-1 ring-primary',
         className,
       )}

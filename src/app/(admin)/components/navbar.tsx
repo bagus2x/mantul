@@ -1,7 +1,8 @@
 'use client'
 
-import { BellIcon, GlobeIcon, LayoutGrid, MenuIcon, SunIcon } from 'lucide-react'
+import { BellIcon, GlobeIcon, LayoutGrid, MenuIcon } from 'lucide-react'
 
+import { DropdownDarkMode } from '@mantul/app/(admin)/components/dropdown-dark-mode'
 import { NavbarProfileMenu } from '@mantul/app/(admin)/components/navbar-profile-menu'
 import { NavbarSearchBox } from '@mantul/app/(admin)/components/navbar-search-box'
 import { useSidebar } from '@mantul/app/(admin)/components/sidebar'
@@ -29,9 +30,7 @@ export const Navbar = ({ className }: NavbarProps) => {
         <Button variant='ghost' size='icon' className='hidden md:inline-flex'>
           <GlobeIcon />
         </Button>
-        <Button variant='ghost' size='icon' className='hidden md:inline-flex'>
-          <SunIcon />
-        </Button>
+        <DropdownDarkMode />
         <Button variant='ghost' size='icon'>
           <BellIcon />
         </Button>

@@ -87,7 +87,8 @@ export const EventCalendar = ({ className }: BigCalendarProps) => {
           dayPropGetter={(current) => ({
             className: cn(
               'bg-transparent',
-              !dayjs(date).isSame(current, 'month') && '!bg-gray-100',
+              !dayjs(date).isSame(current, 'month') && '!bg-gray-50  dark:!bg-white/20',
+              dayjs(date).isSame(current, 'day') && '!bg-primary/10',
             ),
           })}
         />

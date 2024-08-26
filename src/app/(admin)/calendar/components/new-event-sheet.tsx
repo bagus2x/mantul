@@ -113,7 +113,7 @@ export const NewEventDrawer = ({ className }: NewEventDrawerProps) => {
                     </FormControl>
                     <SelectContent>
                       {categories.map((category) => (
-                        <SelectItem value={category.name}>
+                        <SelectItem key={category.name} value={category.name}>
                           <div className='flex items-center gap-2'>
                             {category.name}{' '}
                             <div

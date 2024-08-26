@@ -37,7 +37,7 @@ export const NavbarSearchBox = ({ className }: NavbarSearchBoxProps) => {
       <button
         onClick={() => setIsFocused(true)}
         className={cn(
-          'flex w-full items-center justify-start space-x-2 rounded-md bg-gray-100 px-3 py-2',
+          'flex w-full items-center justify-start space-x-2 rounded-md bg-gray-100 px-3 py-2 dark:bg-card',
           className,
         )}>
         <SearchIcon className='size-4 shrink-0' />
