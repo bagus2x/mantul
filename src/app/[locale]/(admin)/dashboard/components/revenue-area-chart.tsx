@@ -158,10 +158,11 @@ export function RevenueAreaChart({ className }: TransactionChartProps) {
   return (
     <Card className={cn(className)}>
       <CardHeader className='flex items-center gap-2 space-y-0 border-b py-5 sm:flex-row'>
-        <div className='grid flex-1 gap-1 text-center sm:text-left'>
+        <div className='grid gap-1 text-center sm:text-left'>
           <CardTitle>Revenue Stream</CardTitle>
           <CardDescription>Showing total revenue for the last 3 months</CardDescription>
         </div>
+        <div className='flex-1' />
         <Select value={timeRange} onValueChange={setTimeRange}>
           <SelectTrigger className='w-[160px] rounded-lg sm:ml-auto' aria-label='Select a value'>
             <SelectValue placeholder='Last 3 months' />

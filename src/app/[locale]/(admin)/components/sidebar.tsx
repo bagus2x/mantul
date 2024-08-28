@@ -216,7 +216,7 @@ export const SidebarMenuItem = (menu: SidebarMenuItemProps) => {
         return (
           <div
             className={cn(
-              'flex cursor-pointer items-center space-x-2 overflow-hidden rounded-md bg-background p-3 font-semibold transition-all duration-500 hover:bg-primary/5',
+              'flex cursor-pointer items-center space-x-2 overflow-hidden rounded-md bg-background p-3 font-semibold transition-all duration-500 hover:bg-primary/5 rtl:flex-row-reverse',
               isActive(menu.href) && 'bg-primary/15 font-bold text-primary/80 hover:bg-primary/15',
             )}
             onClick={isSidebarExpanded ? toggle : expand}>
@@ -250,7 +250,7 @@ export const SidebarMenuItem = (menu: SidebarMenuItemProps) => {
         <Link
           href={menu.href}
           className={cn(
-            'flex cursor-pointer items-center space-x-2 overflow-hidden rounded-md bg-background p-3 font-semibold transition-all duration-500 hover:bg-primary/5',
+            'flex cursor-pointer items-center space-x-2 overflow-hidden rounded-md bg-background p-3 font-semibold transition-all duration-500 hover:bg-primary/5 rtl:flex-row-reverse',
             menu.href === pathname && 'bg-primary/15 font-bold text-primary/80 hover:bg-primary/15',
           )}>
           {children}
@@ -284,7 +284,10 @@ export const SidebarMenuItem = (menu: SidebarMenuItemProps) => {
         )}
         {menu.menus?.length && isSidebarExpanded && (
           <ChevronRightIcon
-            className={cn('size-4 transition-all duration-500', isSubMenuExpanded && 'rotate-90')}
+            className={cn(
+              'size-4 transition-all duration-500 rtl:rotate-180',
+              isSubMenuExpanded && 'rotate-90 rtl:rotate-90',
+            )}
           />
         )}
       </LinkItem>

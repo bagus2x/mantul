@@ -1,7 +1,8 @@
 import { createI18nClient } from 'next-international/client'
 
-import langs, { Translation, Translations } from '@mantul/locales/langs'
-import fallback from '@mantul/locales/langs/en'
+import langs, { DEFAULT_LOCALE, Translation, Translations } from '@mantul/locales/langs'
+
+const fallback = require(`@mantul/locales/langs/${DEFAULT_LOCALE}`)
 
 export const {
   useI18n,

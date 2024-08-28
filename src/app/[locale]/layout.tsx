@@ -27,7 +27,7 @@ export default function RootLayout({
   params: { locale: string }
 }>) {
   const { direction: dir } = new Locale(locale).textInfo
-
+  
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning={true}>
       <body className={cn('min-h-screen', noto.className)}>
