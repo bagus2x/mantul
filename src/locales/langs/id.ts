@@ -7,4 +7,5 @@ export default {
   'landing.hero.tagline': 'Manage Data, Boost Productivity',
   'landing.hero.tagline-desc':
     'Ready-to-use Admin Template for Reliable and Customizable Solutions',
+  'dashboard.analytic.earnings': 'Pendapatan',
 } as const

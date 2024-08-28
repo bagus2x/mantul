@@ -1,6 +1,7 @@
 import { createI18nClient } from 'next-international/client'
 
 import langs, { Translation, Translations } from '@mantul/locales/langs'
+import fallback from '@mantul/locales/langs/en'
 
 export const {
   useI18n,
@@ -25,6 +26,6 @@ export const {
     // Uncomment to use custom segment name
     // segmentName: 'locale',
     // Uncomment to set fallback locale
-    // fallbackLocale: en,
+    fallbackLocale: fallback,
   },
 )

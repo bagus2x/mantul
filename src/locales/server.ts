@@ -1,5 +1,7 @@
-import langs, { Translation, Translations } from '@mantul/locales/langs'
 import { createI18nServer } from 'next-international/server'
+
+import langs, { Translation, Translations } from '@mantul/locales/langs'
+import fallback from '@mantul/locales/langs/en'
 
 export const { getI18n, getScopedI18n, getCurrentLocale, getStaticParams } = createI18nServer<
   Translations,
@@ -18,6 +20,6 @@ export const { getI18n, getScopedI18n, getCurrentLocale, getStaticParams } = cre
     // Uncomment to use custom segment name
     // segmentName: 'locale',
     // Uncomment to set fallback locale
-    // fallbackLocale: en,
+    fallbackLocale: fallback,
   },
 )
