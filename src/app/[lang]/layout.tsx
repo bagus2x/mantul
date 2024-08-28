@@ -1,13 +1,12 @@
+import Locale from 'intl-locale-textinfo-polyfill'
 import type { Metadata } from 'next'
 import { Noto_Sans } from 'next/font/google'
 import { ProgressBar, ProgressBarProvider } from 'react-transition-progress'
-import Locale from 'intl-locale-textinfo-polyfill'
 
 import '@mantul/app/[lang]/globals.css'
+import { I18nProvider } from '@mantul/components/i18n-provider'
 import { ThemeProvider } from '@mantul/components/theme-provider'
 import { cn } from '@mantul/libs/utils'
-import { getStaticParams } from '@mantul/locales/server'
-import { I18nProvider } from '@mantul/components/i18n-provider'
 
 const noto = Noto_Sans({
   subsets: ['latin'],
@@ -20,9 +19,6 @@ export const metadata: Metadata = {
   icons: 'mantul.svg',
 }
 
-export async function generateStaticParams() {
-  return getStaticParams()
-}
 
 export default function RootLayout({
   children,
@@ -48,4 +44,3 @@ export default function RootLayout({
     </html>
   )
 }
-
