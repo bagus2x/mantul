@@ -1,15 +1,14 @@
 'use client'
 
-import { BellIcon, GlobeIcon, LayoutGrid, MenuIcon } from 'lucide-react'
+import { BellIcon, LayoutGrid, MenuIcon } from 'lucide-react'
 
 import { DropdownDarkMode } from '@mantul/app/[locale]/(admin)/components/dropdown-dark-mode'
+import { DropdownLanguage } from '@mantul/app/[locale]/(admin)/components/dropdown-language'
 import { NavbarProfileMenu } from '@mantul/app/[locale]/(admin)/components/navbar-profile-menu'
 import { NavbarSearchBox } from '@mantul/app/[locale]/(admin)/components/navbar-search-box'
-import { useSidebar } from '@mantul/app/[locale]/(admin)/components/sidebar'
+import { useSidebar } from '@mantul/app/[locale]/(admin)/components/use-sidebar'
 import { Button } from '@mantul/components/ui/button'
 import { cn } from '@mantul/libs/utils'
-import { DropdownLanguage } from '@mantul/app/[locale]/(admin)/components/dropdown-language'
-import { Suspense } from 'react'
 
 export interface NavbarProps {
   className?: string

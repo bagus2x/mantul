@@ -1,3 +1,7 @@
 export default function Page() {
-  return <main>a</main>
+  return (
+    <main>
+      <h1>Coming Soon!</h1>
+    </main>
+  )
 }

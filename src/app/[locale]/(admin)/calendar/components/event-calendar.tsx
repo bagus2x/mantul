@@ -28,7 +28,7 @@ const events: MyEvent[] = [
   {
     start: dayjs().toDate(),
     end: dayjs().add(1, 'day').toDate(),
-    title: 'MRI Registration',
+    title: 'me-I Registration',
     data: {
       type: 'Reg',
     },
@@ -58,7 +58,7 @@ export const EventCalendar = ({ className }: BigCalendarProps) => {
   return (
     <Card className={cn('flex w-full flex-col gap-4 p-4 md:flex-row', className)} asChild>
       <section>
-        <div className='hidden w-full flex-col space-y-4 lg:flex lg:max-w-72'>
+        <div className='hidden w-full flex-col gap-4 lg:flex lg:max-w-72'>
           <NewEventDrawer />
           <Calendar
             mode='single'

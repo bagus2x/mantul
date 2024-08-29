@@ -21,7 +21,7 @@ export function EmailList({ items }: EmailListProps) {
           <button
             key={item.id}
             className={cn(
-              'flex flex-col items-start gap-2 rounded-lg border p-3 text-left text-sm transition-all hover:bg-accent',
+              'rounded-sg flex flex-col items-start gap-2 border p-3 text-left text-sm transition-all hover:bg-accent',
               selectedId === item.id && 'bg-muted',
             )}
             onClick={() => selectMail(item.id)}>
@@ -33,7 +33,7 @@ export function EmailList({ items }: EmailListProps) {
                 </div>
                 <div
                   className={cn(
-                    'ml-auto text-xs',
+                    'ms-auto text-xs',
                     selectedId === item.id ? 'text-foreground' : 'text-muted-foreground',
                   )}>
                   {formatDistanceToNow(new Date(item.date), {

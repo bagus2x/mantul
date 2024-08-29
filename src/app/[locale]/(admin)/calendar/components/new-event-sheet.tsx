@@ -33,6 +33,7 @@ import {
 } from '@mantul/components/ui/select'
 import { Textarea } from '@mantul/components/ui/textarea'
 import { cn } from '@mantul/libs/utils'
+import { useDirection } from '@mantul/components/direction-provider'
 
 export interface NewEventDrawerProps {
   className?: string
@@ -73,9 +74,10 @@ export const NewEventDrawer = ({ className }: NewEventDrawerProps) => {
       description: '',
     },
   })
+  const direction = useDirection()
 
   return (
-    <Drawer direction='right'>
+    <Drawer direction={direction === 'ltr' ? 'right' : 'left'}>
       <DrawerTrigger asChild>
         <Button className={cn('w-full', className)}>Add Event</Button>
       </DrawerTrigger>
@@ -84,7 +86,7 @@ export const NewEventDrawer = ({ className }: NewEventDrawerProps) => {
           <DrawerTitle>Add new event</DrawerTitle>
         </DrawerHeader>
         <Form {...form}>
-          <form className='flex flex-col space-y-4 p-4'>
+          <form className='flex flex-col gap-4 p-4'>
             <FormField
               control={form.control}
               name='title'

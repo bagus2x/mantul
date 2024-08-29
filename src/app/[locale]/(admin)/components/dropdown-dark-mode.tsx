@@ -1,6 +1,6 @@
 'use client'
 
-import { MoonIcon, SunIcon } from 'lucide-react'
+import { CheckIcon, MoonIcon, SunIcon } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 import { Button } from '@mantul/components/ui/button'
@@ -16,7 +16,7 @@ export interface DropdownDarkModeProps {
 }
 
 export const DropdownDarkMode = ({ className }: DropdownDarkModeProps) => {
-  const { setTheme } = useTheme()
+  const { setTheme, theme } = useTheme()
 
   return (
     <DropdownMenu>
@@ -28,9 +28,15 @@ export const DropdownDarkMode = ({ className }: DropdownDarkModeProps) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end'>
-        <DropdownMenuItem onClick={() => setTheme('light')}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('dark')}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme('light')} className='flex justify-between'>
+          <span>Light</span> {theme === 'light' && <CheckIcon />}
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme('dark')} className='flex justify-between'>
+          <span>Dark</span> {theme === 'dark' && <CheckIcon />}
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme('system')} className='flex justify-between'>
+          <span>System</span> {theme === 'system' && <CheckIcon />}
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )

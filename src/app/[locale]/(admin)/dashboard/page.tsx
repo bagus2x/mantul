@@ -10,7 +10,7 @@ import { TransactionsTable } from '@mantul/app/[locale]/(admin)/dashboard/compon
 export default function DashboardPage() {
   return (
     <main className='mx-auto flex max-w-screen-2xl flex-col p-4'>
-      <section className='mb-4 grid grid-cols-2 gap-4 sm:grid-cols-2 lg:grid-cols-4'>
+      <section className='mb-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4'>
         <Earnings />
         <Spendings />
         <Savings />

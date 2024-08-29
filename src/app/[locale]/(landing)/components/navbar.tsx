@@ -45,7 +45,7 @@ export const Navbar = async ({ className }: NavbarProps) => {
       <div className='flex-1' />
       <Button asChild>
         <Link href='/auth/signin'>
-          <LogInIcon className='mr-2' />
+          <LogInIcon className='me-2' />
           Login
         </Link>
       </Button>

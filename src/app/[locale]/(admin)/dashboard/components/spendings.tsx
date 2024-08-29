@@ -17,7 +17,7 @@ export const Spendings = ({ className }: SpendingsProps) => {
       <CardContent className='flex items-center gap-2 pb-3'>
         <span className='text-2xl'>$928.41</span>
         <Badge variant='label-destructive'>
-          <ArrowDownIcon className='mr-1 size-4' />
+          <ArrowDownIcon className='me--1 size-4' />
           <span className='font-semibold'>12.8%</span>
         </Badge>
       </CardContent>

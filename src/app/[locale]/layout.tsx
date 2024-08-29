@@ -7,6 +7,7 @@ import '@mantul/app/[locale]/globals.css'
 import { I18nProvider } from '@mantul/components/i18n-provider'
 import { ThemeProvider } from '@mantul/components/theme-provider'
 import { cn } from '@mantul/libs/utils'
+import { DirectionProvider } from '@mantul/components/direction-provider'
 
 const noto = Noto_Sans({
   subsets: ['latin'],
@@ -27,17 +28,19 @@ export default function RootLayout({
   params: { locale: string }
 }>) {
   const { direction: dir } = new Locale(locale).textInfo
-  
+
   return (
     <html lang={locale} dir={dir} suppressHydrationWarning={true}>
       <body className={cn('min-h-screen', noto.className)}>
         <I18nProvider lang={locale}>
-          <ThemeProvider attribute='class' defaultTheme='light'>
-            <ProgressBarProvider>
-              <ProgressBar className='fixed start-0 top-0 z-50 h-1 w-full bg-primary pb-1 text-2xl font-semibold' />
-              {children}
-            </ProgressBarProvider>
-          </ThemeProvider>
+          <DirectionProvider dir={dir as 'rtl' | 'ltr'}>
+            <ThemeProvider attribute='class' defaultTheme='light'>
+              <ProgressBarProvider>
+                <ProgressBar className='fixed start-0 top-0 z-50 h-1 w-full bg-primary pb-1 text-2xl font-semibold' />
+                {children}
+              </ProgressBarProvider>
+            </ThemeProvider>
+          </DirectionProvider>
         </I18nProvider>
       </body>
     </html>

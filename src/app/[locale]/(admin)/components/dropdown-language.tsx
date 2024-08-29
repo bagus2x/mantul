@@ -1,6 +1,7 @@
 'use client'
 
 import { CheckIcon, GlobeIcon } from 'lucide-react'
+import Image from 'next/image'
 
 import { Button } from '@mantul/components/ui/button'
 import {
@@ -9,8 +10,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@mantul/components/ui/dropdown-menu'
+import languages from '@mantul/libs/languages'
+import { cn } from '@mantul/libs/utils'
+import locales from '@mantul/locales'
 import { useChangeLocale, useCurrentLocale } from '@mantul/locales/client'
-import langs from '@mantul/locales/langs'
 
 export interface DropdownLanguageProps {
   className?: string
@@ -19,6 +22,23 @@ export interface DropdownLanguageProps {
 export const DropdownLanguage = ({ className }: DropdownLanguageProps) => {
   const changeLocale = useChangeLocale()
   const currentLocale = useCurrentLocale()
+
+  const Item = ({ locale }: { locale: (typeof locales)[number] }) => {
+    const language = languages.find((lang) => lang.code === locale)
+
+    return (
+      <DropdownMenuItem
+        key={locale}
+        onClick={() => changeLocale(locale)}
+        className='flex min-w-60 gap-2'>
+        <span className='me-1 uppercase'>{language?.name}</span>
+        <div className='flex flex-1 justify-end'>
+          {language && <Image src={language.flag} alt={language.name} width={20} height={20} />}
+        </div>
+        {<CheckIcon className={cn('opacity-0', locale === currentLocale && 'opacity-100')} />}
+      </DropdownMenuItem>
+    )
+  }
 
   return (
     <DropdownMenu>
@@ -29,14 +49,8 @@ export const DropdownLanguage = ({ className }: DropdownLanguageProps) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end'>
-        {langs.map((lang) => (
-          <DropdownMenuItem
-            key={lang}
-            onClick={() => changeLocale(lang)}
-            className='flex justify-between'>
-            <span className='uppercase'> {lang}</span>
-            {lang === currentLocale && <CheckIcon />}
-          </DropdownMenuItem>
+        {locales.map((locale) => (
+          <Item key={locale} locale={locale} />
         ))}
       </DropdownMenuContent>
     </DropdownMenu>

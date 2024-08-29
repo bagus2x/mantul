@@ -1,6 +1,6 @@
 import { createI18nClient } from 'next-international/client'
 
-import langs, { DEFAULT_LOCALE, Translation, Translations } from '@mantul/locales/langs'
+import locales, { DEFAULT_LOCALE, Translation, Translations } from '@mantul/locales'
 
 const fallback = require(`@mantul/locales/langs/${DEFAULT_LOCALE}`)
 
@@ -12,14 +12,14 @@ export const {
   defineLocale,
   useCurrentLocale,
 } = createI18nClient<Translations, Translation>(
-  langs.reduce(
+  locales.reduce(
     (langs, lang) => ({
       ...langs,
       [lang]: async (): Promise<Translations[typeof lang]> => {
         return import(`@mantul/locales/langs/${lang}`) as Promise<Translations[typeof lang]>
       },
     }),
-    {} as Record<(typeof langs)[number], () => Promise<Translation>>,
+    {} as Record<(typeof locales)[number], () => Promise<Translation>>,
   ),
   {
     // Uncomment to set base path

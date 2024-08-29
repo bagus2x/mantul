@@ -1,10 +1,10 @@
 import { createI18nMiddleware } from 'next-international/middleware'
 import type { NextRequest } from 'next/server'
 
-import langs, { DEFAULT_LOCALE } from '@mantul/locales/langs'
+import locales, { DEFAULT_LOCALE } from '@mantul/locales'
 
 const I18nMiddleware = createI18nMiddleware({
-  locales: langs,
+  locales: locales,
   defaultLocale: DEFAULT_LOCALE,
   urlMappingStrategy: 'rewrite',
 })

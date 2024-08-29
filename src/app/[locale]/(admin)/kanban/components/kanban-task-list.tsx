@@ -63,7 +63,7 @@ export const KanbanTaskList = ({ taskList, active, className }: KanbanTaskListPr
           ))}
         </SortableContext>
         <Button variant='outline'>
-          <PlusIcon className='mr-4' />
+          <PlusIcon className='me--4' />
           Add new task
         </Button>
       </CardContent>

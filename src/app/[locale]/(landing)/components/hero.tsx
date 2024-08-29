@@ -25,12 +25,12 @@ export const Hero = async ({ className }: HeroProps) => {
         'relative min-h-[calc(100vh*0.75)] w-full overflow-x-hidden px-4 pb-20 pt-8',
         className,
       )}>
-      <div className='absolute left-0 top-0 h-[calc(100%*0.75)] w-full overflow-hidden rounded-b-[64px] bg-primary/40 dark:hidden dark:bg-primary/10'>
+      <div className='absolute start-0 top-0 h-[calc(100%*0.75)] w-full overflow-hidden rounded-b-[64px] bg-primary/40 dark:hidden dark:bg-primary/10'>
         <div className='relative h-full w-full'>
           <RetroGrid />
         </div>
       </div>
-      <div className='fixed left-1/2 z-50 w-full max-w-screen-2xl -translate-x-1/2 transform px-4'>
+      <div className='fixed start-1/2 z-50 w-full max-w-screen-2xl -translate-x-1/2 transform px-4'>
         <Navbar />
       </div>
       <div className='relative mx-auto flex max-w-xl flex-col gap-8 px-4 pb-10 pt-20 text-center'>
@@ -43,7 +43,7 @@ export const Hero = async ({ className }: HeroProps) => {
               )}>
               {t('landing.hero.intro')}
             </span>
-            <ChevronRightIcon className='ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5' />
+            <ChevronRightIcon className='ms-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5' />
           </AnimatedGradientText>
         </Link>
         <GradualSpacing

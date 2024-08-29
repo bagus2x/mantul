@@ -61,7 +61,7 @@ export function TimePickerDemo({ date, setDate }: TimePicker) {
         />
       </div>
       <div className='flex h-10 items-center'>
-        <ClockIcon className='ml-2 h-4 w-4' />
+        <ClockIcon className='ms-2 h-4 w-4' />
       </div>
     </div>
   )
@@ -100,7 +100,7 @@ export function DateTimePicker({ className, value, onChange }: DateTimePickerPro
             !value && 'text-muted-foreground',
             className,
           )}>
-          <CalendarIcon className='mr-2 h-4 w-4' />
+          <CalendarIcon className='me-2 h-4 w-4' />
           {value ? format(value, 'PPP HH:mm:ss') : <span>Pick a date</span>}
         </Button>
       </PopoverTrigger>

@@ -65,7 +65,7 @@ export const EventToolbar = (props: ToolbarProps) => {
         </div>
       </div>
       <ToggleGroup type='single' className='gap-0' value={props.view}>
-        <Button className='rounded-l-md rounded-r-none' variant='outline' asChild>
+        <Button className='rounded-e-none rounded-s-md' variant='outline' asChild>
           <ToggleGroupItem value='month' aria-label='Toggle month' onClick={goToMonthView}>
             Month
           </ToggleGroupItem>
@@ -80,7 +80,7 @@ export const EventToolbar = (props: ToolbarProps) => {
             Day
           </ToggleGroupItem>
         </Button>
-        <Button className='rounded-l-none rounded-r-md' variant='outline' asChild>
+        <Button className='rounded-e-md rounded-s-none' variant='outline' asChild>
           <ToggleGroupItem value='agenda' aria-label='Toggle agenda' onClick={goToAgendaView}>
             Agenda
           </ToggleGroupItem>

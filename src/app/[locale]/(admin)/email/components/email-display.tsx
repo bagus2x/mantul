@@ -85,25 +85,25 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                   <div className='grid min-w-[250px] gap-1'>
                     <Button variant='ghost' className='justify-start font-normal'>
                       Later today{' '}
-                      <span className='ml-auto text-muted-foreground'>
+                      <span className='ms-auto text-muted-foreground'>
                         {format(addHours(today, 4), 'E, h:m b')}
                       </span>
                     </Button>
                     <Button variant='ghost' className='justify-start font-normal'>
                       Tomorrow
-                      <span className='ml-auto text-muted-foreground'>
+                      <span className='ms-auto text-muted-foreground'>
                         {format(addDays(today, 1), 'E, h:m b')}
                       </span>
                     </Button>
                     <Button variant='ghost' className='justify-start font-normal'>
                       This weekend
-                      <span className='ml-auto text-muted-foreground'>
+                      <span className='ms-auto text-muted-foreground'>
                         {format(nextSaturday(today), 'E, h:m b')}
                       </span>
                     </Button>
                     <Button variant='ghost' className='justify-start font-normal'>
                       Next week
-                      <span className='ml-auto text-muted-foreground'>
+                      <span className='ms-auto text-muted-foreground'>
                         {format(addDays(today, 7), 'E, h:m b')}
                       </span>
                     </Button>
@@ -117,7 +117,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
             <TooltipContent>Snooze</TooltipContent>
           </Tooltip>
         </div>
-        <div className='ml-auto flex items-center gap-2'>
+        <div className='ms-auto flex items-center gap-2'>
           <Tooltip>
             <TooltipTrigger asChild>
               <Button variant='ghost' size='icon' disabled={!mail}>
@@ -185,7 +185,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
               </div>
             </div>
             {mail.date && (
-              <div className='ml-auto text-xs text-muted-foreground'>
+              <div className='ms-auto text-xs text-muted-foreground'>
                 {format(new Date(mail.date), 'PPpp')}
               </div>
             )}
@@ -201,7 +201,7 @@ export function MailDisplay({ mail }: MailDisplayProps) {
                   <Label htmlFor='mute' className='flex items-center gap-2 text-xs font-normal'>
                     <Switch id='mute' aria-label='Mute thread' /> Mute this thread
                   </Label>
-                  <Button onClick={(e) => e.preventDefault()} size='sm' className='ml-auto'>
+                  <Button onClick={(e) => e.preventDefault()} size='sm' className='ms-auto'>
                     Send
                   </Button>
                 </div>

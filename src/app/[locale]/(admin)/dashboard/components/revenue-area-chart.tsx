@@ -164,17 +164,17 @@ export function RevenueAreaChart({ className }: TransactionChartProps) {
         </div>
         <div className='flex-1' />
         <Select value={timeRange} onValueChange={setTimeRange}>
-          <SelectTrigger className='w-[160px] rounded-lg sm:ml-auto' aria-label='Select a value'>
+          <SelectTrigger className='rounded-sg w-[160px] sm:ms-auto' aria-label='Select a value'>
             <SelectValue placeholder='Last 3 months' />
           </SelectTrigger>
           <SelectContent className='rounded-xl'>
-            <SelectItem value='90d' className='rounded-lg'>
+            <SelectItem value='90d' className='rounded-sg'>
               Last 3 months
             </SelectItem>
-            <SelectItem value='30d' className='rounded-lg'>
+            <SelectItem value='30d' className='rounded-sg'>
               Last 30 days
             </SelectItem>
-            <SelectItem value='7d' className='rounded-lg'>
+            <SelectItem value='7d' className='rounded-sg'>
               Last 7 days
             </SelectItem>
           </SelectContent>

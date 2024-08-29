@@ -22,7 +22,7 @@ export const Earnings = async ({ className }: EarningsProps) => {
       <CardContent className='flex items-center gap-2 pb-3'>
         <span className='text-2xl'>$928.41</span>
         <Badge variant='label-success'>
-          <ArrowUpIcon className='mr-1 size-4' />
+          <ArrowUpIcon className='me--1 size-4' />
           <span className='font-semibold'>12.8%</span>
         </Badge>
       </CardContent>
