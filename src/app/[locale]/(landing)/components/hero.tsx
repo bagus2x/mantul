@@ -30,7 +30,7 @@ export const Hero = async ({ className }: HeroProps) => {
           <RetroGrid />
         </div>
       </div>
-      <div className='fixed start-1/2 z-50 w-full max-w-screen-2xl -translate-x-1/2 transform px-4'>
+      <div className='fixed start-1/2 z-50 w-full max-w-screen-2xl -translate-x-1/2 transform px-4 rtl:end-1/2 rtl:translate-x-1/2'>
         <Navbar />
       </div>
       <div className='relative mx-auto flex max-w-xl flex-col gap-8 px-4 pb-10 pt-20 text-center'>
