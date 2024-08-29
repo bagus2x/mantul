@@ -113,10 +113,7 @@ export const SidebarMenuItem = (menu: SidebarMenuItemProps) => {
           />
         )}
         {isSidebarExpanded && (
-          <span
-            className={cn(
-              'flex-1 overflow-hidden text-ellipsis text-nowrap text-start rtl:text-end',
-            )}>
+          <span className={cn('flex-1 overflow-hidden text-ellipsis text-nowrap text-start')}>
             {menu.title}
           </span>
         )}
