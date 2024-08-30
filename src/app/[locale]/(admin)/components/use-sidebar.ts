@@ -1,4 +1,3 @@
-import { useI18n } from '@mantul/locales/client'
 import {
   BookOpenIcon,
   CalendarIcon,
@@ -12,11 +11,15 @@ import {
   MailIcon,
   MapIcon,
   MessagesSquareIcon,
+  NotebookPenIcon,
   PieChartIcon,
+  PuzzleIcon,
   SquareKanbanIcon,
 } from 'lucide-react'
 import React from 'react'
 import { create } from 'zustand'
+
+import { useI18n } from '@mantul/locales/client'
 
 interface SidebarStore {
   isExpanded: boolean
@@ -158,6 +161,29 @@ export const useSidebarMenu = () => {
         {
           title: t('admin.layout.sidebar.errors.500'),
           href: '/error/500',
+          Icon: DotIcon,
+        },
+      ],
+    },
+    { title: t('admin.layout.sidebar.extras') },
+    {
+      title: t('admin.layout.sidebar.extras.wysiwyg'),
+      href: '/extras/wysiwyg',
+      Icon: NotebookPenIcon,
+    },
+    {
+      title: t('admin.layout.sidebar.extras.ui'),
+      href: '/extras/ui',
+      Icon: PuzzleIcon,
+      menus: [
+        {
+          title: t('admin.layout.sidebar.extras.ui.accordion'),
+          href: '/extras/ui/accordion',
+          Icon: DotIcon,
+        },
+        {
+          title: t('admin.layout.sidebar.extras.ui.button'),
+          href: '/extras/ui/button',
           Icon: DotIcon,
         },
       ],
