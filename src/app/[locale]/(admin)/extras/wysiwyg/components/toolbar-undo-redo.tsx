@@ -1,8 +1,9 @@
-import { Undo2Icon, Redo2Icon } from 'lucide-react'
+import { Editor } from '@tiptap/core'
+import { Redo2Icon, Undo2Icon } from 'lucide-react'
+
 import { Button } from '@mantul/components/ui/button'
 import { toggleVariants } from '@mantul/components/ui/toggle'
 import { cn } from '@mantul/libs/utils'
-import { Editor } from '@tiptap/core'
 
 interface UndoRedoButtonsProps {
   className?: string

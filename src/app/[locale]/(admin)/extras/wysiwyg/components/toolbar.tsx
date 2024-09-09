@@ -1,4 +1,6 @@
 import { Editor } from '@tiptap/core'
+import { BubbleMenu } from '@tiptap/react'
+import { Fragment, PropsWithChildren, useCallback, useRef, useState } from 'react'
 
 import { ToolbarHeadingStyle } from '@mantul/app/[locale]/(admin)/extras/wysiwyg/components/toolbar-heading-style'
 import { ToolbarLink } from '@mantul/app/[locale]/(admin)/extras/wysiwyg/components/toolbar-link'
@@ -7,20 +9,21 @@ import { ToolbarTextStyle } from '@mantul/app/[locale]/(admin)/extras/wysiwyg/co
 import { ToolbarUndoRedo } from '@mantul/app/[locale]/(admin)/extras/wysiwyg/components/toolbar-undo-redo'
 import { Separator } from '@mantul/components/ui/separator'
 import { cn } from '@mantul/libs/utils'
-import { BubbleMenu } from '@tiptap/react'
-import { PropsWithChildren, useCallback, useRef, useState } from 'react'
-
+import { Button } from '@mantul/components/ui/button'
+import { PinIcon, PinOffIcon } from 'lucide-react'
+import { useToggle } from '@mantul/hooks/use-toggle'
 export interface EditorToolbarProps {
   className?: string
   editor: Editor
-  bubble?: boolean
 }
 
-export const Toolbar = ({ editor, className, bubble }: EditorToolbarProps) => {
+export const Toolbar = ({ editor, className }: EditorToolbarProps) => {
   const ref = useRef<HTMLDivElement | null>(null)
+  const [isBubble, toggleBubble] = useToggle(false)
+
   const Container = useCallback(
     ({ children }: PropsWithChildren) => {
-      if (bubble) {
+      if (isBubble) {
         return (
           <BubbleMenu
             editor={editor}
@@ -31,9 +34,9 @@ export const Toolbar = ({ editor, className, bubble }: EditorToolbarProps) => {
         )
       }
 
-      return <>{children}</>
+      return <div>{children}</div>
     },
-    [bubble, editor],
+    [isBubble, editor],
   )
 
   return (
@@ -41,8 +44,9 @@ export const Toolbar = ({ editor, className, bubble }: EditorToolbarProps) => {
       <div
         ref={ref}
         className={cn(
-          'flex w-full flex-row flex-wrap items-center justify-start gap-1 py-1',
+          'flex w-full flex-row flex-wrap items-center justify-start gap-1 rounded-md border bg-card p-1',
           className,
+          isBubble && 'sticky top-20 z-10',
         )}>
         <ToolbarUndoRedo editor={editor} />
         <Separator orientation='vertical' className='mx-2 h-full min-h-6' />
@@ -53,6 +57,10 @@ export const Toolbar = ({ editor, className, bubble }: EditorToolbarProps) => {
         <ToolbarHeadingStyle editor={editor} container={ref.current} />
         <Separator orientation='vertical' className='mx-2 h-full min-h-6' />
         <ToolbarLink editor={editor} />
+        <div className='flex-1' />
+        <Button size='icon' variant='ghost' onClick={toggleBubble}>
+          {isBubble ? <PinOffIcon className='size-4' /> : <PinIcon className='size-4' />}
+        </Button>
       </div>
     </Container>
   )

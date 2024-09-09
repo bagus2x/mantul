@@ -5,7 +5,6 @@ export const metadata: Metadata = {
   title: 'Wysiwyg',
 }
 
-
 export default function WysiwygPage() {
   return (
     <main className='mx-auto flex w-full max-w-screen-2xl flex-col p-4'>
