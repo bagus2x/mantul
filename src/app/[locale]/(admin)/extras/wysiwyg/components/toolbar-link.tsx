@@ -1,8 +1,3 @@
-import { Editor } from '@tiptap/core'
-import { BubbleMenu } from '@tiptap/react'
-import { EditIcon, ExternalLink, Link2Icon, UnlinkIcon } from 'lucide-react'
-import { useEffect, useState } from 'react'
-
 import { Button } from '@mantul/components/ui/button'
 import { Card } from '@mantul/components/ui/card'
 import { Input } from '@mantul/components/ui/input'
@@ -12,6 +7,11 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@mantul/components/ui/popover'
+import { cn } from '@mantul/libs/utils'
+import { Editor } from '@tiptap/core'
+import { BubbleMenu } from '@tiptap/react'
+import { EditIcon, ExternalLink, Link2Icon, UnlinkIcon } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
 interface ToolbarLinkProps {
   className?: string
@@ -68,16 +68,21 @@ export const BubbleLink = ({ editor, className }: ToolbarLinkProps) => {
 
   useEffect(() => {
     setNewHref(href)
+    setIsEditing(false)
   }, [href])
 
   return (
     <BubbleMenu
       editor={editor}
-      className={className}
+      className={cn(className, 'w-full max-w-sm')}
       shouldShow={({ editor }) => !!editor.getAttributes('link').href}>
       {isEditing && (
-        <Card className='flex w-full flex-col gap-4 px-4 py-1'>
-          <Input value={newHref} onChange={(ev) => setNewHref(ev.target.value)} />
+        <Card className='flex w-full flex-col gap-4 p-1'>
+          <Input
+            className='min-w-80'
+            value={newHref}
+            onChange={(ev) => setNewHref(ev.target.value)}
+          />
           <Button
             onClick={() => {
               editor.chain().extendMarkRange('link').setLink({ href: newHref }).run()
@@ -85,11 +90,20 @@ export const BubbleLink = ({ editor, className }: ToolbarLinkProps) => {
             }}>
             Save
           </Button>
+          <Button
+            variant='outline'
+            onClick={() => {
+              setIsEditing(false)
+            }}>
+            Cancel
+          </Button>
         </Card>
       )}
       {!isEditing && (
-        <Card className='flex w-full flex-row items-center gap-3 px-3 py-1'>
-          <span className='text-sm text-secondary'>{href}</span>
+        <Card className='flex flex-row items-center gap-1 p-1'>
+          <span className='min-w-0 flex-1 overflow-hidden text-ellipsis px-2 text-sm text-secondary'>
+            {href}
+          </span>
           <div className='border-s ps-1'>
             <Button size='icon' variant='ghost' asChild>
               <a href={href} target='_blank'>
