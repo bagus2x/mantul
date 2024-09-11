@@ -5,7 +5,6 @@ import {
   DotIcon,
   HeartHandshakeIcon,
   HomeIcon,
-  LayoutPanelLeftIcon,
   LockIcon,
   LucideProps,
   MailIcon,
@@ -95,11 +94,6 @@ export const useSidebarMenu = () => {
         },
       ],
     },
-    {
-      title: t('admin.layout.sidebar.layout'),
-      href: '/layout',
-      Icon: LayoutPanelLeftIcon,
-    },
     { title: t('admin.layout.sidebar.appsAndPages') },
     {
       title: t('admin.layout.sidebar.email'),
@@ -175,18 +169,6 @@ export const useSidebarMenu = () => {
       title: t('admin.layout.sidebar.extras.ui'),
       href: '/extras/ui',
       Icon: PuzzleIcon,
-      menus: [
-        {
-          title: t('admin.layout.sidebar.extras.ui.accordion'),
-          href: '/extras/ui/accordion',
-          Icon: DotIcon,
-        },
-        {
-          title: t('admin.layout.sidebar.extras.ui.button'),
-          href: '/extras/ui/button',
-          Icon: DotIcon,
-        },
-      ],
     },
     { title: t('admin.layout.sidebar.others') },
     {

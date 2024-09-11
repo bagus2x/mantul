@@ -1,8 +1,13 @@
 import dynamic from 'next/dynamic'
+import { Metadata } from 'next'
 
 import { MapGeoJson } from '@mantul/app/[locale]/(admin)/map/components/map-geojson'
 import { MapIcon } from '@mantul/app/[locale]/(admin)/map/components/map-icon'
 import { Card } from '@mantul/components/ui/card'
+
+export const metadata: Metadata = {
+  title: 'Map',
+}
 
 const MapBasic = dynamic(
   () =>

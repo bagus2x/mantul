@@ -2,7 +2,11 @@ import { cookies } from 'next/headers'
 
 import { Email } from '@mantul/app/[locale]/(admin)/email/components/email'
 import { accounts, mails } from '@mantul/app/[locale]/(admin)/email/data'
-import { Card } from '@mantul/components/ui/card'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Email',
+}
 
 export default function EmailPage() {
   const layout = cookies().get('react-resizable-panels:layout:mail')

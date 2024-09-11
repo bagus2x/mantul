@@ -1,4 +1,9 @@
 import { KanbanBoard } from '@mantul/app/[locale]/(admin)/kanban/components/kanban-board'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Kanban',
+}
 
 export default function KanbanPage() {
   return (
