@@ -55,21 +55,6 @@ export const useSidebarMenu = () => {
           href: '/dashboard',
           Icon: DotIcon,
         },
-        {
-          title: t('admin.layout.sidebar.dashboard.crm'),
-          href: '/crm',
-          Icon: DotIcon,
-        },
-        {
-          title: t('admin.layout.sidebar.dashboard.ecommerce'),
-          href: '/ecommerce',
-          Icon: DotIcon,
-        },
-        {
-          title: t('admin.layout.sidebar.dashboard.logistic'),
-          href: '/academy',
-          Icon: DotIcon,
-        },
       ],
     },
     {
