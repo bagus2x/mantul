@@ -18,8 +18,8 @@ export default function ExtendedUiPage() {
   return (
     <main className='mx-auto flex w-full max-w-screen-2xl flex-col gap-4 p-4'>
       <p>
-        This dashboard uses components from 'shadcn/ui' and 'Magic UI.' You can add other components
-        to this dashboard and modify them.
+        This dashboard uses components from shadcn/ui and Magic UI. You can add other components to
+        this dashboard and modify them.
       </p>
       <section className='flex w-full max-w-screen-sm gap-4'>
         <Card className='flex-1'>
